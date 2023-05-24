@@ -40,7 +40,8 @@ Partial Class ContractEditFrm
         Me.txtBranchNumber = New System.Windows.Forms.TextBox()
         Me.lbBranchNumber = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbContractNumber = New System.Windows.Forms.Label()
+        Me.txtContractNumber = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -86,6 +87,7 @@ Partial Class ContractEditFrm
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.txtContractNumber)
         Me.Panel2.Controls.Add(Me.cbCustomer)
         Me.Panel2.Controls.Add(Me.lbStatus)
         Me.Panel2.Controls.Add(Me.dateContract)
@@ -97,7 +99,7 @@ Partial Class ContractEditFrm
         Me.Panel2.Controls.Add(Me.txtBranchNumber)
         Me.Panel2.Controls.Add(Me.lbBranchNumber)
         Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.lbContractNumber)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
@@ -221,15 +223,23 @@ Partial Class ContractEditFrm
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Customer"
         '
-        'Label1
+        'lbContractNumber
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(112, 30)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(210, 20)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Contract Number: 20230001"
+        Me.lbContractNumber.AutoSize = True
+        Me.lbContractNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbContractNumber.Location = New System.Drawing.Point(112, 30)
+        Me.lbContractNumber.Name = "lbContractNumber"
+        Me.lbContractNumber.Size = New System.Drawing.Size(210, 20)
+        Me.lbContractNumber.TabIndex = 0
+        Me.lbContractNumber.Text = "Contract Number: 20230001"
+        '
+        'txtContractNumber
+        '
+        Me.txtContractNumber.Location = New System.Drawing.Point(404, 30)
+        Me.txtContractNumber.Name = "txtContractNumber"
+        Me.txtContractNumber.Size = New System.Drawing.Size(45, 20)
+        Me.txtContractNumber.TabIndex = 24
+        Me.txtContractNumber.Visible = False
         '
         'ContractEditFrm
         '
@@ -254,7 +264,7 @@ Partial Class ContractEditFrm
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnCancel As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lbContractNumber As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtBranchNumber As System.Windows.Forms.TextBox
     Friend WithEvents lbBranchNumber As System.Windows.Forms.Label
@@ -268,4 +278,5 @@ Partial Class ContractEditFrm
     Friend WithEvents cbContractType As System.Windows.Forms.ComboBox
     Friend WithEvents lbContractType As System.Windows.Forms.Label
     Friend WithEvents cbStatus As System.Windows.Forms.ComboBox
+    Friend WithEvents txtContractNumber As System.Windows.Forms.TextBox
 End Class

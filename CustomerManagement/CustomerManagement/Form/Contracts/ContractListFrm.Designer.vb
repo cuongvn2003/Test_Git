@@ -275,7 +275,7 @@ Partial Class ContractListFrm
         Me.Id.HeaderText = "Id"
         Me.Id.Name = "Id"
         Me.Id.ReadOnly = True
-        Me.Id.Visible = False
+        Me.Id.Width = 50
         '
         'ContractNumber
         '
@@ -359,6 +359,9 @@ Partial Class ContractListFrm
     Friend WithEvents lbStatus As System.Windows.Forms.Label
     Friend WithEvents btnReset As System.Windows.Forms.Button
     Friend WithEvents btnSearch As System.Windows.Forms.Button
+    Friend WithEvents txtContractId As System.Windows.Forms.TextBox
+    Friend WithEvents lbRenewable As System.Windows.Forms.Label
+    Friend WithEvents cbRenewable As System.Windows.Forms.ComboBox
     Friend WithEvents Id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ContractNumber As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents BranchNumber As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -366,7 +369,4 @@ Partial Class ContractListFrm
     Friend WithEvents ContractType As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ContractDate As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Status As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents txtContractId As System.Windows.Forms.TextBox
-    Friend WithEvents lbRenewable As System.Windows.Forms.Label
-    Friend WithEvents cbRenewable As System.Windows.Forms.ComboBox
 End Class

@@ -97,6 +97,38 @@ Public Class ContractEditFrm
     End Sub
 
     ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private Sub GetContractNumber()
+        ' Get the list of contract types
+        Using connection As MySqlConnection = DatabaseHelper.GetConnection()
+            connection.Open()
+
+            Dim query As String = "SELECT substring(c.ContractNumber, 5) as ContractNumber" _
+                + " FROM lease_package.contracts c " _
+                + " ORDER BY substring(c.ContractNumber, 5) DESC" _
+                + " LIMIT 1"
+
+            Using command As New MySqlCommand(query, connection)
+                Using reader As MySqlDataReader = command.ExecuteReader()
+                    While reader.Read()
+
+                        ' Mapping data customer
+                        Dim contractNumber As Integer = Convert.ToInt32(reader("ContractNumber"))
+                        Dim contractNumberStr = System.DateTime.Now.Year & Format(contractNumber + 1, "000")
+                        lbContractNumber.Text = "Contract Number: " & contractNumberStr
+                        txtContractNumber.Text = contractNumberStr
+
+                    End While
+                End Using
+            End Using
+
+            DatabaseHelper.CloseConnection(connection)
+        End Using
+    End Sub
+
+    ''' <summary>
     ''' Load data to form
     ''' </summary>
     ''' <param name="sender"></param>
@@ -116,6 +148,8 @@ Public Class ContractEditFrm
 
             dateContract.Format = DateTimePickerFormat.Custom
             dateContract.CustomFormat = " "
+
+            GetContractNumber()
         Else
             btnDelete.Enabled = True
 
@@ -132,6 +166,9 @@ Public Class ContractEditFrm
                         While reader.Read()
 
                             ' Mapping data contract detail
+                            Dim contractNumberStr = Convert.ToString(reader("ContractNumber"))
+                            txtContractNumber.Text = contractNumberStr
+                            lbContractNumber.Text = "Contract Number: " & contractNumberStr
 
                             cbCustomer.SelectedValue = Convert.ToInt32(reader("CustomerId"))
                             txtBranchNumber.Text = Convert.ToString(reader("BranchNumber"))
@@ -193,7 +230,7 @@ Public Class ContractEditFrm
 
                 ' Create a MySqlCommand object and set the parameters
                 Dim command As New MySqlCommand(query, connection)
-                command.Parameters.AddWithValue("@ContractNumber", "2023002")
+                command.Parameters.AddWithValue("@ContractNumber", txtContractNumber.Text)
                 command.Parameters.AddWithValue("@BranchNumber", txtBranchNumber.Text)
                 If rdRenewableYes.Checked = True Then
                     command.Parameters.AddWithValue("@IsRenewable", CInt(Constants.ContractRenewable.Yes))
