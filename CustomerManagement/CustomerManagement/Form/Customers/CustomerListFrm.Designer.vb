@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class CustomerManagementForm
+Partial Class CustomerListFrm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,6 +25,7 @@ Partial Class CustomerManagementForm
         Me.txtFullName = New System.Windows.Forms.TextBox()
         Me.lbFullName = New System.Windows.Forms.Label()
         Me.panelCustomerInfo = New System.Windows.Forms.Panel()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtCustomerId = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnDelete = New System.Windows.Forms.Button()
@@ -41,12 +42,12 @@ Partial Class CustomerManagementForm
         Me.panelCustomerList = New System.Windows.Forms.Panel()
         Me.dgvCustomer = New System.Windows.Forms.DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.No = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FullName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Address = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Phone = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Captial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EstablishedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnReset = New System.Windows.Forms.Button()
         Me.panelCustomerInfo.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.panelCustomerList.SuspendLayout()
@@ -71,6 +72,8 @@ Partial Class CustomerManagementForm
         '
         'panelCustomerInfo
         '
+        Me.panelCustomerInfo.Controls.Add(Me.btnReset)
+        Me.panelCustomerInfo.Controls.Add(Me.btnSearch)
         Me.panelCustomerInfo.Controls.Add(Me.txtCustomerId)
         Me.panelCustomerInfo.Controls.Add(Me.Panel1)
         Me.panelCustomerInfo.Controls.Add(Me.dateEstablished)
@@ -89,9 +92,18 @@ Partial Class CustomerManagementForm
         Me.panelCustomerInfo.Size = New System.Drawing.Size(772, 153)
         Me.panelCustomerInfo.TabIndex = 2
         '
+        'btnSearch
+        '
+        Me.btnSearch.Location = New System.Drawing.Point(660, 61)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(75, 34)
+        Me.btnSearch.TabIndex = 14
+        Me.btnSearch.Text = "Search"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
         'txtCustomerId
         '
-        Me.txtCustomerId.Location = New System.Drawing.Point(551, 61)
+        Me.txtCustomerId.Location = New System.Drawing.Point(519, 61)
         Me.txtCustomerId.Name = "txtCustomerId"
         Me.txtCustomerId.Size = New System.Drawing.Size(114, 20)
         Me.txtCustomerId.TabIndex = 15
@@ -138,7 +150,7 @@ Partial Class CustomerManagementForm
         'dateEstablished
         '
         Me.dateEstablished.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dateEstablished.Location = New System.Drawing.Point(551, 118)
+        Me.dateEstablished.Location = New System.Drawing.Point(519, 118)
         Me.dateEstablished.Name = "dateEstablished"
         Me.dateEstablished.Size = New System.Drawing.Size(114, 20)
         Me.dateEstablished.TabIndex = 10
@@ -146,7 +158,7 @@ Partial Class CustomerManagementForm
         'lbDateEstablishment
         '
         Me.lbDateEstablishment.AutoSize = True
-        Me.lbDateEstablishment.Location = New System.Drawing.Point(434, 122)
+        Me.lbDateEstablishment.Location = New System.Drawing.Point(402, 122)
         Me.lbDateEstablishment.Name = "lbDateEstablishment"
         Me.lbDateEstablishment.Size = New System.Drawing.Size(109, 13)
         Me.lbDateEstablishment.TabIndex = 9
@@ -154,7 +166,7 @@ Partial Class CustomerManagementForm
         '
         'txtCapital
         '
-        Me.txtCapital.Location = New System.Drawing.Point(551, 90)
+        Me.txtCapital.Location = New System.Drawing.Point(519, 90)
         Me.txtCapital.Name = "txtCapital"
         Me.txtCapital.Size = New System.Drawing.Size(114, 20)
         Me.txtCapital.TabIndex = 6
@@ -162,7 +174,7 @@ Partial Class CustomerManagementForm
         'lbAuthorisedCapital
         '
         Me.lbAuthorisedCapital.AutoSize = True
-        Me.lbAuthorisedCapital.Location = New System.Drawing.Point(504, 94)
+        Me.lbAuthorisedCapital.Location = New System.Drawing.Point(472, 94)
         Me.lbAuthorisedCapital.Name = "lbAuthorisedCapital"
         Me.lbAuthorisedCapital.Size = New System.Drawing.Size(39, 13)
         Me.lbAuthorisedCapital.TabIndex = 7
@@ -188,7 +200,7 @@ Partial Class CustomerManagementForm
         '
         Me.txtAddress.Location = New System.Drawing.Point(79, 90)
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(324, 20)
+        Me.txtAddress.Size = New System.Drawing.Size(288, 20)
         Me.txtAddress.TabIndex = 2
         '
         'lbAddress
@@ -214,7 +226,7 @@ Partial Class CustomerManagementForm
         Me.dgvCustomer.AllowUserToAddRows = False
         Me.dgvCustomer.AllowUserToDeleteRows = False
         Me.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCustomer.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.No, Me.FullName, Me.Address, Me.Phone, Me.Captial, Me.EstablishedDate})
+        Me.dgvCustomer.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.FullName, Me.Address, Me.Phone, Me.Captial, Me.EstablishedDate})
         Me.dgvCustomer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvCustomer.Location = New System.Drawing.Point(0, 0)
         Me.dgvCustomer.Name = "dgvCustomer"
@@ -230,14 +242,6 @@ Partial Class CustomerManagementForm
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
         Me.ID.Visible = False
-        '
-        'No
-        '
-        Me.No.DataPropertyName = "No"
-        Me.No.HeaderText = "No."
-        Me.No.Name = "No"
-        Me.No.ReadOnly = True
-        Me.No.Width = 50
         '
         'FullName
         '
@@ -277,6 +281,15 @@ Partial Class CustomerManagementForm
         Me.EstablishedDate.ReadOnly = True
         Me.EstablishedDate.Width = 150
         '
+        'btnReset
+        '
+        Me.btnReset.Location = New System.Drawing.Point(660, 108)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(75, 34)
+        Me.btnReset.TabIndex = 16
+        Me.btnReset.Text = "Reset"
+        Me.btnReset.UseVisualStyleBackColor = True
+        '
         'CustomerManagementForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -314,10 +327,11 @@ Partial Class CustomerManagementForm
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents txtCustomerId As System.Windows.Forms.TextBox
     Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents No As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FullName As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Address As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Phone As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Captial As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents EstablishedDate As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnSearch As System.Windows.Forms.Button
+    Friend WithEvents btnReset As System.Windows.Forms.Button
 End Class

@@ -88,11 +88,41 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer.vb" />
-    <Compile Include="CustomerManagementForm.Designer.vb">
-      <DependentUpon>CustomerManagementForm.vb</DependentUpon>
+    <Compile Include="Class\Contract.vb" />
+    <Compile Include="Class\Customer.vb" />
+    <Compile Include="Class\ListItem.vb" />
+    <Compile Include="Common\Common.vb" />
+    <Compile Include="Common\Constants.vb" />
+    <Compile Include="Common\ListItem.vb" />
+    <Compile Include="DB\DatabaseHelper.vb" />
+    <Compile Include="Form\Contracts\ContractEditFrm.Designer.vb">
+      <DependentUpon>ContractEditFrm.vb</DependentUpon>
     </Compile>
-    <Compile Include="CustomerManagementForm.vb">
+    <Compile Include="Form\Contracts\ContractEditFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Contracts\ContractListFrm.Designer.vb">
+      <DependentUpon>ContractListFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Contracts\ContractListFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Customers\CustomerEditFrm.Designer.vb">
+      <DependentUpon>CustomerEditFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Customers\CustomerEditFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Customers\CustomerListFrm.Designer.vb">
+      <DependentUpon>CustomerListFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Customers\CustomerListFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\MainMenuFrm.Designer.vb">
+      <DependentUpon>MainMenuFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\MainMenuFrm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -112,8 +142,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CustomerManagementForm.resx">
-      <DependentUpon>CustomerManagementForm.vb</DependentUpon>
+    <EmbeddedResource Include="Form\Contracts\ContractEditFrm.resx">
+      <DependentUpon>ContractEditFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Contracts\ContractListFrm.resx">
+      <DependentUpon>ContractListFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Customers\CustomerEditFrm.resx">
+      <DependentUpon>CustomerEditFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Customers\CustomerListFrm.resx">
+      <DependentUpon>CustomerListFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\MainMenuFrm.resx">
+      <DependentUpon>MainMenuFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -155,6 +197,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
